@@ -4,7 +4,7 @@
 About LRU:  Least Recently Used (LRU) Cache organizes items in order of use, allowing you to quickly identify which item hasn't been used for the longest amount of time.
 
 
-Data structures :
+# Data structures :
 1. Doubly linked list: for storing recent cache item.
 2. Hash map: for maintaining key and node so we can access items in liked list in O(1) time.
 
