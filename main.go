@@ -1,7 +1,7 @@
 package main
 
 import "fmt"
-import l "GOLRU/cache"
+import l "github.com/Yadavshivpal/GOLRU/cache"
 
 func main(){
 
