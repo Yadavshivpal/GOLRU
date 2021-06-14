@@ -21,11 +21,11 @@ type entry struct {
 type LRUCache struct {
     capacity int
     currSize int
-    record map[int]*entry
+    mapping map[int]*entry
     li list
 }
 
-func moveNodeToFront(li list, n *node) {
+func movenode(li list, n *node) {
     head := li.head
 
     n.next.prev = n.prev
@@ -38,7 +38,7 @@ func moveNodeToFront(li list, n *node) {
     head.next = n
 }
 
-func insertToFront(li list, n *node) {
+func insertnode(li list, n *node) {
     head := li.head
 
     head.next.prev = n
@@ -47,7 +47,7 @@ func insertToFront(li list, n *node) {
     head.next = n
 }
 
-func removeLast(li list) {
+func removenode(li list) {
     tail := li.tail
 
     tail.prev.prev.next = tail
@@ -61,7 +61,7 @@ func Constructor(capacity int) LRUCache {
     return LRUCache{
         capacity: capacity,
         currSize: 0,
-        record: make(map[int]*entry),
+        mapping: make(map[int]*entry),
         li: list{
             head: head,
             tail: tail,
@@ -70,8 +70,8 @@ func Constructor(capacity int) LRUCache {
 }
 
 func (this *LRUCache) Get(key int) int {
-    if e, ok := this.record[key]; ok {
-        moveNodeToFront(this.li, e.n)
+    if e, ok := this.mapping[key]; ok {
+        movenode(this.li, e.n)
         return e.value
     }
 
@@ -80,20 +80,20 @@ func (this *LRUCache) Get(key int) int {
 
 
 func (this *LRUCache) Put(key int, value int)  {
-    if e, ok := this.record[key]; ok {
-        moveNodeToFront(this.li, e.n)
-        this.record[key].value = value
+    if e, ok := this.mapping[key]; ok {
+        movenode(this.li, e.n)
+        this.mapping[key].value = value
     } else {
         if (this.currSize == this.capacity) {
-            delete(this.record, this.li.tail.prev.key)
-            removeLast(this.li)
+            delete(this.mapping, this.li.tail.prev.key)
+            removenode(this.li)
             this.currSize--
         }
 
         n := &node{key: key}
-        insertToFront(this.li, n)
+        insertnode(this.li, n)
 
-        this.record[key] = &entry{
+        this.mapping[key] = &entry{
             value: value,
             n: n,
         }
@@ -108,9 +108,9 @@ func main(){
   obj.Put(2,20)
   obj.Put(3,30)
   obj.Put(1,10)
-  param_1 := obj.Get(3)
-  fmt.Println(param_1)
-  param_2 := obj.Get(1)
-  fmt.Println(param_2)
+  out := obj.Get(3)
+  fmt.Println(out)
+  out1 := obj.Get(1)
+  fmt.Println(out1)
 
 }
