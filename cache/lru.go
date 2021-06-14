@@ -1,6 +1,6 @@
 package lru
 
-import l "github.com/Yadavshivpal/GOLRU/dlllllll"
+import l "github.com/Yadavshivpal/GOLRU/dll"
 
 type LRUCache struct {
     capacity int
