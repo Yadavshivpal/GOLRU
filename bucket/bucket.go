@@ -1,4 +1,4 @@
-package dll
+package bucket
 
 type Node struct {
     Key int
