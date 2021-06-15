@@ -3,6 +3,13 @@
 
 About LRU:  Least Recently Used (LRU) Cache organizes items in order of use, allowing you to quickly identify which item hasn't been used for the longest amount of time.
 
+# Commmand 
+
+1. git clone https://github.com/Yadavshivpal/GOLRU
+
+2. cd GOLRU
+
+3. go run client.go
 
 # Data structures :
 1. Doubly linked list: for storing recent cache item.
