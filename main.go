@@ -5,13 +5,44 @@ import l "github.com/Yadavshivpal/GOLRU/lru"
 
 func main(){
 
-  obj := l.Constructor(2)
-  obj.Put(2,20)
-  obj.Put(3,30)
-  obj.Put(1,10)
-  out := obj.Get(3)
-  fmt.Println(out)
-  out1 := obj.Get(1)
-  fmt.Println(out1)
+  fmt.Println("enter 1 for run code or enter 2 for exit ")
+  var a int
+  fmt.Scanln(&a)
+  if a==1{
+    fmt.Println("Enter capacity")
+    var cap int
+    fmt.Scanln(&cap)
+    obj := l.Constructor(cap)
+    var count = true
+    for count{
+      fmt.Println("Enter 1 for GET key ")
+      fmt.Println("Enter 2 for PUT key")
+      fmt.Println("For exit Enter 3")
+      var i int
+      fmt.Scanln(&i)
+      switch i {
+      case 1:
+        fmt.Println("Enter the KEY to get value ")
+        var input int
+        fmt.Scanln(&input)
+        fmt.Println(obj.Get(input))
+      case 2:
+        fmt.Println("Enter the key and value insert")
+        var k int
+        var v int
+        fmt.Scanln(&k)
+        fmt.Scanln(&v)
+        obj.Put(k, v)
+      case 3:
+        count = false
+        fmt.Println("Thnank you")
+      }
+
+    }
+  }else
+  {
+    fmt.Println("Thnank you")
+  }
+
 
 }
