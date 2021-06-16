@@ -1,7 +1,6 @@
 package lru
 
 import l "github.com/Yadavshivpal/GOLRU/bucket"
-import "fmt"
 
 type LRUCache struct {
     capacity int
