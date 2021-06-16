@@ -27,7 +27,7 @@ func Newcache(capacity int) LRUCache {
 
 func (this LRUCache) Printall(){
   for k, v := range this.Mapping {
-      fmt.Println("Key is: "k, "value is: ",v.Value)
+      fmt.Println("Key is: ",k, "value is: ",v.Value)
   }
 }
 
