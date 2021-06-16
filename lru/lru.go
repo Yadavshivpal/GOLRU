@@ -25,12 +25,6 @@ func Newcache(capacity int) LRUCache {
     }
 }
 
-func (this LRUCache) Printall(){
-  for k, v := range this.Mapping {
-      fmt.Println("Key is: ",k, "value is: ",v.Value)
-  }
-}
-
 func (this *LRUCache) Get(key int) int {
     if e, ok := this.Mapping[key]; ok {
         l.Movenode(this.Li, e.N)
