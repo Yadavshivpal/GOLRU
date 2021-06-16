@@ -1,6 +1,6 @@
 package lru
 
-import l "LRU/dll"
+import l "GOLRU/bucket"
 import "fmt"
 
 type LRUCache struct {
