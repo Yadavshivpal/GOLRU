@@ -45,8 +45,6 @@ func main(){
       case 3:
         count = false
         fmt.Println("Thnank you")
-      case 4:
-        obj.Printall();
       }
 
     }
