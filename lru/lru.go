@@ -1,23 +1,23 @@
 package lru
 
-import l "github.com/Yadavshivpal/GOLRU/bucket"
+import l "LRU/dll"
+import "fmt"
 
 type LRUCache struct {
     capacity int
     currSize int
-    mapping map[int]*l.Entry
+    Mapping map[int]*l.Entry
     Li l.List
 }
 
-
-func Constructor(capacity int) LRUCache {
+func Newcache(capacity int) LRUCache {
     head, tail := &l.Node{Prev: nil}, &l.Node{Next: nil}
     head.Next, tail.Prev = tail, head
 
     return LRUCache{
         capacity: capacity,
         currSize: 0,
-        mapping: make(map[int]*l.Entry),
+        Mapping: make(map[int]*l.Entry),
         Li: l.List{
             Head: head,
             Tail: tail,
@@ -25,8 +25,14 @@ func Constructor(capacity int) LRUCache {
     }
 }
 
+func (this LRUCache) Printall(){
+  for k, v := range this.Mapping {
+    fmt.Println(k, "value is ",v.Value)
+  }
+}
+
 func (this *LRUCache) Get(key int) int {
-    if e, ok := this.mapping[key]; ok {
+    if e, ok := this.Mapping[key]; ok {
         l.Movenode(this.Li, e.N)
         return e.Value
     }
@@ -34,14 +40,13 @@ func (this *LRUCache) Get(key int) int {
     return -1
 }
 
-
 func (this *LRUCache) Put(key int, value int)  {
-    if e, ok := this.mapping[key]; ok {
+    if e, ok := this.Mapping[key]; ok {
         l.Movenode(this.Li, e.N)
-        this.mapping[key].Value = value
+        this.Mapping[key].Value = value
     } else {
         if (this.currSize == this.capacity) {
-            delete(this.mapping, this.Li.Tail.Prev.Key)
+            delete(this.Mapping, this.Li.Tail.Prev.Key)
             l.Removenode(this.Li)
             this.currSize--
         }
@@ -49,7 +54,7 @@ func (this *LRUCache) Put(key int, value int)  {
         n := &l.Node{Key: key}
         l.Insertnode(this.Li, n)
 
-        this.mapping[key] = &l.Entry{
+        this.Mapping[key] = &l.Entry{
             Value: value,
             N: n,
         }
