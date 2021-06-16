@@ -24,7 +24,6 @@ access item 	                O(1)
 
 
 # Reference
-1. https://girai.dev/blog/lru-cache-implementation-in-go/ for code
-2. https://www.interviewcake.com/concept/java/lru-cache for LRU algo
-3. https://www.youtube.com/watch?v=9yjQ2DV5rmY for LRU algo
-4. https://www.sibis.dev/linked-lists-in-golang-explained-with-real-world-application for linked list
+1. https://www.interviewcake.com/concept/java/lru-cache for LRU algo
+2. https://www.youtube.com/watch?v=9yjQ2DV5rmY for LRU algo
+3. https://www.sibis.dev/linked-lists-in-golang-explained-with-real-world-application for linked list
